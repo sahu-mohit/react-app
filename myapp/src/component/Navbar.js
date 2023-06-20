@@ -47,8 +47,7 @@ export default function Navbar(props) {
                 id="modecheck"
                 onClick={props.toggleMode}
               />
-              <label className={`form-check-label navbar-${props.mode}`}>
-              {/* <label className={`form-check-label bg-dark`}> */}
+              <label className={`form-check-label bg-${props.mode}`}>
                 Theam type
               </label>
             </div>
