@@ -1,14 +1,13 @@
 import './App.css';
-import Form from './component/Form';
+import TextForm from './component/TextForm';
 import Navbar from './component/Navbar';
 
 function App() {
   return (
     <>
-    <Navbar title="TextUtils" about="about TextUtils" contact = "Contect Us"/>
+    <Navbar title="TextUtils" about="about TextUtils"/>
     <div className='container my-3'>
-      <Form/>
-      <button className = 'container my-2' type='submit'>submit</button>
+      <TextForm heading = "Enter the text here"/>
     </div>
     
     </>
