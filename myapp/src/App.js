@@ -36,10 +36,9 @@ function App() {
         title="TextUtils"
         about="about TextUtils"
         mode={mode}
-        // showAlert={showAlert}
         toggleMode={toggleMode}
       />
-      <Alert alert={alert} />
+      <Alert alert={alert}/>
       <div className="container my-3">
         <TextForm
           heading="Enter the text here"
