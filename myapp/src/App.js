@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import TextForm from "./component/TextForm";
 import Navbar from "./component/Navbar";
 import Alert from "./component/Alert";
