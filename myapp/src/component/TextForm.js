@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
-  // let disabled = true;
   const handlUpperCase = () => {
     setText(text.toUpperCase());
     props.showAlert("Text converted in UpperCase", "success");
@@ -23,15 +22,9 @@ export default function TextForm(props) {
   };
 
   const handleCopyData = () => {
-    const copytext = document.getElementById("textarea");
-    copytext.select();
-    navigator.clipboard.writeText(copytext.value);
-    document.getSelection().removeAllRanges();
-    if (copytext.value.length > 0) {
-      props.showAlert("Text Copied", "success");
-    } else {
-      props.showAlert("Text not available", "warning");
-    }
+
+    navigator.clipboard.writeText(text);
+      props.showAlert("Text Copy to clipboard", "success");
   };
 
   const handleExtraSpace = () => {
@@ -108,7 +101,7 @@ export default function TextForm(props) {
           </button>
           <h1>Your text summary</h1>
           <p>
-            {text.split(" ").filter((element)=>{return element !== ""}).length} Word and characters{" "}
+            {text.split(/\s+/).filter((element)=>{return element !== ""}).length} Word and characters{" "}
             {text.length}
           </p>
           <h1>Preview</h1>
