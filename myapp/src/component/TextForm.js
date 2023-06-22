@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(" pleace enter here");
 
   const handlUpperCase = () => {
     setText(text.toUpperCase());
