@@ -26,7 +26,7 @@ export default function TextForm(props) {
     const copytext = document.getElementById("textarea");
     copytext.select();
     navigator.clipboard.writeText(copytext.value);
-    window.getSelection().removeAllRanges();
+    document.getSelection().removeAllRanges();
     if (copytext.value.length > 0) {
       props.showAlert("Text Copied", "success");
     } else {
@@ -60,11 +60,11 @@ export default function TextForm(props) {
         <h2>{props.heading}</h2>
         <div className="form-floating">
           <textarea
-            className={`form-control  text-${props.mode === "light" ? "dark" : "light"} bg-${props.mode === "dark" ? "secondary" : "light"}`}
+            className={`form-control  text-${props.mode === "light" ? "dark" : "light"}`}
             id="textarea"
+            style={{height: "200px", backgroundColor: props.mode === "dark" ? "#24282c" : "white", color : props.mode === "dark" ? "#24282c" : "dark"} }
             onChange={handleonChange}
             value={text}
-            style={{height: "200px"}} 
           ></textarea>
           <button
           disabled = {text.length === 0}
