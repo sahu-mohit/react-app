@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
-
+  // let disabled = true;
   const handlUpperCase = () => {
     setText(text.toUpperCase());
     props.showAlert("Text converted in UpperCase", "success");
@@ -26,6 +26,7 @@ export default function TextForm(props) {
     const copytext = document.getElementById("textarea");
     copytext.select();
     navigator.clipboard.writeText(copytext.value);
+    window.getSelection().removeAllRanges();
     if (copytext.value.length > 0) {
       props.showAlert("Text Copied", "success");
     } else {
@@ -59,14 +60,14 @@ export default function TextForm(props) {
         <h2>{props.heading}</h2>
         <div className="form-floating">
           <textarea
-            // className={`form-control  text-${props.mode === "light" ? "dark" : "light"} bg-${props.mode === "dark" ? "dark" : "light"}`}
             className={`form-control  text-${props.mode === "light" ? "dark" : "light"} bg-${props.mode === "dark" ? "secondary" : "light"}`}
             id="textarea"
             onChange={handleonChange}
             value={text}
-            style={{height: "200px"}}
+            style={{height: "200px"}} 
           ></textarea>
           <button
+          disabled = {text.length === 0}
             className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
             onClick={handlUpperCase}
             type="Button"
@@ -74,6 +75,7 @@ export default function TextForm(props) {
             Convert to Upper Case
           </button>
           <button
+          disabled = {text.length === 0}
             className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
             onClick={handleLowerCase}
             type="Button"
@@ -81,6 +83,7 @@ export default function TextForm(props) {
             Convert to Lower Case
           </button>
           <button
+          disabled = {text.length === 0}
             className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
             onClick={handleClearData}
             type="Button"
@@ -88,6 +91,7 @@ export default function TextForm(props) {
             Clear Data
           </button>
           <button
+          disabled = {text.length === 0}
             className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
             onClick={handleCopyData}
             type="Button"
@@ -95,6 +99,7 @@ export default function TextForm(props) {
             Copy Data
           </button>
           <button
+          disabled = {text.length === 0}
             className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
             onClick={handleExtraSpace}
             type="Button"
@@ -103,7 +108,7 @@ export default function TextForm(props) {
           </button>
           <h1>Your text summary</h1>
           <p>
-            {text.length > 0 ? text.split(" ").length : 0} Word and{" "}
+            {text.split(" ").filter((element)=>{return element !== ""}).length} Word and characters{" "}
             {text.length}
           </p>
           <h1>Preview</h1>
