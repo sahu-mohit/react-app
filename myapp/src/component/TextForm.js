@@ -2,6 +2,27 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
+
+  const pasteText = () =>{
+    if (navigator.clipboard && navigator.clipboard.readText) {
+      navigator.clipboard.readText()
+        .then(text1 => {
+          const selection = document.getSelection().toString();
+          if(!selection.length>0){
+            setText(text+text1);
+          }else{
+          setText(text1);
+        }
+          props.showAlert("Data Pasted","success");
+        })
+        .catch(error => {
+          props.showAlert("Somthing gose Wrong","warning");
+        });
+    } else {
+      console.log("Clipboard readText() not supported in this browser.");
+    }
+  }
+
   const handlUpperCase = () => {
     setText(text.toUpperCase());
     props.showAlert("Text converted in UpperCase", "success");
@@ -89,7 +110,7 @@ export default function TextForm(props) {
             onClick={handleCopyData}
             type="Button"
           >
-            Copy Data
+            Copy Text
           </button>
           <button
           disabled = {text.length === 0}
@@ -99,6 +120,15 @@ export default function TextForm(props) {
           >
             Remove Extra Space
           </button>
+
+          <button
+            className={`btn btn-${props.mode === "dark" ? "dark" : "primary"} my-2 mx-2`}
+            onClick={pasteText}
+            type="Button"
+          >
+            Paste Text
+          </button>
+
           <h1>Your text summary</h1>
           <p>
             {text.split(/\s+/).filter((element)=>{return element !== ""}).length} Word and characters{" "}
