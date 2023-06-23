@@ -7,16 +7,20 @@ export default function About(props) {
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingOne">
             <button
-              className={`accordion-button collapsed bg-${
-                props.mode === "dark" ? "dark" : "light"
-              } text-${props.mode === "dark" ? "light" : "dark"}`}
+              className="accordion-button collapsed"
+              style={{
+                backgroundColor: 
+                  props.mode === "dark" ? "#212529" : "rgb(234 244 255)"
+                ,
+                color: props.mode === "dark" ? "white" : "black",
+              }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Welcome to TextUtils!
+              <strong>Welcome to TextUtils!</strong>
             </button>
           </h2>
           <div
@@ -44,16 +48,20 @@ export default function About(props) {
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingTwo">
             <button
-              className={`accordion-button collapsed bg-${
-                props.mode === "dark" ? "dark" : "light"
-              } text-${props.mode === "dark" ? "light" : "dark"}`}
+              className="accordion-button collapsed "
+              style={{
+                backgroundColor: 
+                  props.mode === "dark" ? "#212529" : "rgb(234 244 255)"
+                ,
+                color: props.mode === "dark" ? "white" : "black",
+              }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
             >
-              Our Mission:
+              <strong>Our Mission:</strong>
             </button>
           </h2>
           <div
@@ -82,16 +90,20 @@ export default function About(props) {
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingThree">
             <button
-              className={`accordion-button collapsed bg-${
-                props.mode === "dark" ? "dark" : "light"
-              } text-${props.mode === "dark" ? "light" : "dark"}`}
+              className="accordion-button collapsed"
+              style={{
+                backgroundColor: 
+                  props.mode === "dark" ? "#212529" : "rgb(234 244 255)"
+                ,
+                color: props.mode === "dark" ? "white" : "black",
+              }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
               aria-expanded="false"
               aria-controls="flush-collapseThree"
             >
-              Key Features:
+              <strong>Key Features:</strong>
             </button>
           </h2>
           <div
